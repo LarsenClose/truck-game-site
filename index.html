@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truck: Dig & Drive - Strategic Underground Adventure</title>
+    <meta name="description" content="Dig deep, drive far, and become the ultimate underground trucker! Available on iOS, Android, and Web.">
+    <link rel="icon" href="favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            padding: 20px 0;
+            background: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff6b00;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ff6b00;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,107,0,0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+        
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+        
+        .app-icon {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 30px;
+            border-radius: 45px;
+            box-shadow: 0 20px 60px rgba(255,107,0,0.3);
+        }
+        
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ff6b00, #ff9500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .tagline {
+            font-size: 24px;
+            color: #cccccc;
+            margin-bottom: 40px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #ff6b00, #ff9500);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        
+        .features {
+            padding: 100px 0;
+            background: #0f0f0f;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .feature-card {
+            background: rgba(255,255,255,0.05);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s, background 0.3s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.08);
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .screenshots {
+            padding: 100px 0;
+            background: #1a1a1a;
+        }
+        
+        .screenshot-gallery {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 40px 0;
+            scroll-snap-type: x mandatory;
+        }
+        
+        .screenshot {
+            flex: 0 0 300px;
+            scroll-snap-align: center;
+        }
+        
+        .screenshot img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        
+        footer {
+            padding: 60px 0 40px;
+            background: #000000;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #888888;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #ff6b00;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #888888;
+            font-size: 18px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 36px; }
+            .tagline { font-size: 18px; }
+            .nav-links { display: none; }
+            .features-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">🚛 Truck: Dig & Drive</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#screenshots">Screenshots</a></li>
+                <li><a href="play/">Play Now</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <img src="app-icon.png" alt="Truck: Dig & Drive" class="app-icon">
+            <h1>Truck: Dig & Drive</h1>
+            <p class="tagline">Strategic Underground Adventure</p>
+            <div class="cta-buttons">
+                <a href="play/" class="btn btn-primary">
+                    🎮 Play Now
+                </a>
+                <a href="#" class="btn btn-secondary" title="Coming Soon">
+                    📱 Download on App Store
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.larsenclose.truckgame" class="btn btn-secondary">
+                    🤖 Get it on Google Play
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Game Features</h2>
+            <p class="section-subtitle">Dig deep, drive far, compete globally!</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Global Leaderboards</h3>
+                    <p>Compete with players worldwide in real-time. Climb the ranks from Rookie to Ultimate Trucker!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3>Multiple Game Modes</h3>
+                    <p>Classic, Speed Run, Endurance, and Multi-Plane challenges. Each mode offers unique gameplay!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Truck Customization</h3>
+                    <p>Unlock unique skins and trail effects. Stand out with premium cosmetics!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Cross-Platform</h3>
+                    <p>Play on iOS, Android, or Web. Your progress syncs across all devices!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧩</div>
+                    <h3>Strategic Gameplay</h3>
+                    <p>Plan your route carefully. Every move counts in this underground puzzle adventure!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌟</div>
+                    <h3>Progressive Difficulty</h3>
+                    <p>Each level brings new challenges. How deep can you dig?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="screenshots" id="screenshots">
+        <div class="container">
+            <h2 class="section-title">Screenshots</h2>
+            <p class="section-subtitle">Experience the underground adventure</p>
+            <div class="screenshot-gallery">
+                <div class="screenshot">
+                    <img src="screenshots/menu.png" alt="Main Menu">
+                </div>
+                <div class="screenshot">
+                    <img src="screenshots/gameplay.png" alt="Gameplay">
+                </div>
+                <div class="screenshot">
+                    <img src="screenshots/leaderboard.png" alt="Global Leaderboard">
+                </div>
+                <div class="screenshot">
+                    <img src="screenshots/modes.png" alt="Game Modes">
+                </div>
+                <div class="screenshot">
+                    <img src="screenshots/cosmetics.png" alt="Truck Customization">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="support.html">Support</a>
+                <a href="https://github.com/LarsenClose/truck-game-site">GitHub</a>
+            </div>
+            <p>&copy; 2024 Larsen Close. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
