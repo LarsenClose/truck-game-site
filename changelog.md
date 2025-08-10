@@ -1,29 +1,53 @@
-# Truck: Dig & Drive - Version 1.0.1
+# Truck: Dig and Drive - Changelog
 
-## Release Date: August 10, 2025
+## Version 1.0.3 (Latest)
+*Released: December 2024*
 
-### 🐛 Bug Fixes
-- Fixed: Global Leaderboard now has a back button - no more getting stuck!
-- Fixed: Pause/unpause functionality properly working
-- Fixed: Various UI improvements for better user experience
+### 🐛 Critical Bug Fixes
+- **FIXED**: Game-breaking crash when continuing from level 2
+- **FIXED**: Score display issues on game over screen
 
-### 🎮 Improvements
-- Better responsive layout for iPad devices
-- Improved navigation throughout the app
-- Enhanced stability and performance
-
-### 📱 Platform Updates
-- iOS: Updated for latest iOS devices
-- Android: Performance optimizations
-- Added iPad-specific screenshots for App Store
-
-### 🎯 What's Next?
-We're considering simplifying the game modes to focus on the most fun gameplay experience. Let us know what you think!
+### ✨ Improvements
+- Enhanced level progression system
+- Improved overall game stability
+- Better performance optimization
+- Minor UI improvements
 
 ---
 
-**Download the latest version:**
-- [App Store](https://apps.apple.com/app/idXXXXXXXXX)
-- [Google Play Store](https://play.google.com/store/apps/details?id=com.larsenclose.truckgame)
+## Version 1.0.2
+*Released: November 2024*
 
-Thank you for playing Truck: Dig & Drive!
+### Features
+- Added support for iPad screens
+- Improved touch controls
+- Enhanced visual effects
+
+### Bug Fixes
+- Fixed occasional audio issues
+- Resolved menu navigation problems
+- Corrected scoring calculations
+
+---
+
+## Version 1.0.1
+*Released: November 2024*
+
+### Features
+- Initial release
+- 10 challenging levels
+- Classic and Challenge game modes
+- High score tracking
+- Smooth gameplay mechanics
+
+---
+
+## Coming Soon
+- New levels and challenges
+- Additional game modes
+- Achievement system
+- More customization options
+
+---
+
+*Thank you for playing Truck: Dig and Drive!*
